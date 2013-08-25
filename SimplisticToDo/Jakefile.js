@@ -2,10 +2,10 @@
 	"use strict";
 
 	var REQUIRED_BROWSERS = [
-		//"IE 8.0 (Windows)",
+		["IE 8.0", "Windows"],
 		//"IE 9.0 (Windows)",
-		//"Firefox 22.0 (Mac)",
-		"Chrome 29.0 (Mac)",
+		["Firefox 21.0", "Mac"],
+		["Chrome 29.0", "Mac"]
 		//"Safari 6.0 (Mac)",
 		//Safari 6.0 (iOS)"
 	];
@@ -14,16 +14,21 @@
 	var shell = require("shelljs");
 	var uglify = require("uglify-js");
 
-	var lint = require("./build_utils/lint_runner.js");
-	// var karma = require("./build/util/karma_runner.js");
+	var lint = require("./build/utils/lint_runner.js");
+	var karma = require("./build/utils/karma_runner.js");
 
 	var DISTRIBUTION_DIR = "dist";
 	var DISTRIBUTION_JS_DIR = DISTRIBUTION_DIR + "/js";
 	var DISTRIBUTION_JS_VENDOR_DIR = DISTRIBUTION_JS_DIR + "/vendor";
     var DISTRIBUTION_CSS_DIR = DISTRIBUTION_DIR + "/css";
 
+    desc("Start Karma server -- run this first");
+    task("karma", function() {
+        karma.serve(complete, fail);
+    }, {async: true});
+
 	desc("Default Build");
-	task("default", ["clean", "lint", "package"], function() {
+	task("default", ["clean", "lint", "test", "package"], function() {
 		console.log("\n\nOK");
 	});
 
@@ -42,6 +47,11 @@
 		var passed = lint.validateFileList(javascriptFiles(), browserLintOptions(), browserGlobals());
 		if (!passed) fail("Lint failed");
 	});
+
+    desc("Test browser code");
+    task("test", [], function() {
+        karma.runTests(REQUIRED_BROWSERS, complete, fail);
+    }, {async: true});
 
     desc("Package Distribution");
     task("package", ["create_package_structure", "uglify"], function(){

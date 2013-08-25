@@ -5,7 +5,7 @@ window.onload = function(){
 //        addText();
 //    }
 
-//    Alternative technique:
+    //  Alternative technique:
     if(addBtn.addEventListener){
         addBtn.addEventListener("click", function() { addText();});
     } else { // For IE < 9
