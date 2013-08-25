@@ -3,11 +3,11 @@
 
 	var REQUIRED_BROWSERS = [
 		["IE 8.0", "Windows"],
-		//"IE 9.0 (Windows)",
+		//["IE 9.0", "Windows"],
 		["Firefox 21.0", "Mac"],
-		["Chrome 29.0", "Mac"]
-		//"Safari 6.0 (Mac)",
-		//Safari 6.0 (iOS)"
+		["Chrome 29.0", "Mac"],
+		["Safari 6.0", "Mac"],
+		["Mobile Safari 6.0", "iOS"]
 	];
 
 	var fs = require("fs");
@@ -37,24 +37,20 @@
 		shell.rm("-rf", DISTRIBUTION_DIR);
 	})
 
-//	desc("Start Karma server -- run this first");
-//	task("karma", function() {
-//		karma.serve(complete, fail);
-//	}, {async: true});
-
 	desc("Lint everything");
 	task("lint", [], function () {
 		var passed = lint.validateFileList(javascriptFiles(), browserLintOptions(), browserGlobals());
 		if (!passed) fail("Lint failed");
 	});
 
-    desc("Test browser code");
+    desc("Run unit tests");
     task("test", [], function() {
         karma.runTests(REQUIRED_BROWSERS, complete, fail);
     }, {async: true});
 
     desc("Package Distribution");
     task("package", ["create_package_structure", "uglify"], function(){
+        console.log("Packaging solution to " + DISTRIBUTION_DIR);
         shell.cp("-Rf", "*.html", DISTRIBUTION_DIR);
 
         // TODO: should be generic for all .html files
@@ -81,12 +77,6 @@
 		var out = fs.openSync(DISTRIBUTION_JS_DIR + '/all.min.js', 'w+');
 		fs.writeSync(out, result.code);
 	})
-
-	// desc("Test browser code");
-	// task("test", ["build"], function() {
-	// 	karma.runTests(REQUIRED_BROWSERS, complete, fail);
-	// }, {async: true});
-
 
 	function javascriptFiles() {
 		var files = new jake.FileList();
