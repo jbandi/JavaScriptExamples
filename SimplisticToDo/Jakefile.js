@@ -19,9 +19,11 @@
 
 	var DISTRIBUTION_DIR = "dist";
 	var DISTRIBUTION_JS_DIR = DISTRIBUTION_DIR + "/js";
+	var DISTRIBUTION_JS_VENDOR_DIR = DISTRIBUTION_JS_DIR + "/vendor";
+    var DISTRIBUTION_CSS_DIR = DISTRIBUTION_DIR + "/css";
 
 	desc("Default Build");
-	task("default", ["clean", "lint", "uglify"], function() {
+	task("default", ["clean", "lint", "package"], function() {
 		console.log("\n\nOK");
 	});
 
@@ -40,6 +42,25 @@
 		var passed = lint.validateFileList(javascriptFiles(), browserLintOptions(), browserGlobals());
 		if (!passed) fail("Lint failed");
 	});
+
+    desc("Package Distribution");
+    task("package", ["create_package_structure", "uglify"], function(){
+        shell.cp("-Rf", "*.html", DISTRIBUTION_DIR);
+
+        // TODO: should be generic for all .html files
+        shell.sed("-i", 'src="js/main.js"', 'src="js/all.min.js"', DISTRIBUTION_DIR + "/index.html");
+    })
+
+    desc("create package structure");
+    task("create_package_structure", function(){
+        shell.mkdir("-p", DISTRIBUTION_DIR);
+        shell.mkdir("-p", DISTRIBUTION_JS_DIR);
+        shell.mkdir("-p", DISTRIBUTION_JS_VENDOR_DIR);
+        shell.mkdir("-p", DISTRIBUTION_CSS_DIR);
+
+        shell.cp('-Rf', 'js/vendor/*', DISTRIBUTION_JS_VENDOR_DIR);
+        shell.cp('-Rf', 'css/*', DISTRIBUTION_CSS_DIR);
+    })
 
 	desc("Uglify");
 	task("uglify", function(){
