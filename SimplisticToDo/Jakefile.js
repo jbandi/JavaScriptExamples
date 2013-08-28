@@ -2,12 +2,12 @@
 	"use strict";
 
 	var REQUIRED_BROWSERS = [
-		["IE 8.0", "Windows"],
+//		["IE 8.0", "Windows"],
 		//["IE 9.0", "Windows"],
-		["Firefox 21.0", "Mac"],
+//		["Firefox 23.0", "Mac"],
 		["Chrome 29.0", "Mac"],
-		["Safari 6.0", "Mac"],
-		["Mobile Safari 6.0", "iOS"]
+//		["Safari 6.0", "Mac"]
+//		["Mobile Safari 6.0", "iOS"]
 	];
 
 	var fs = require("fs");
@@ -39,18 +39,20 @@
 
 	desc("Lint everything");
 	task("lint", [], function () {
+        console.log("* Build Step: Linting");
 		var passed = lint.validateFileList(javascriptFiles(), browserLintOptions(), browserGlobals());
 		if (!passed) fail("Lint failed");
 	});
 
     desc("Run unit tests");
     task("test", [], function() {
+        console.log("* Build Step: Testing");
         karma.runTests(REQUIRED_BROWSERS, complete, fail);
     }, {async: true});
 
     desc("Package Distribution");
     task("package", ["create_package_structure", "uglify"], function(){
-        console.log("Packaging solution to " + DISTRIBUTION_DIR);
+        console.log("* Build Step: Packaging");
         shell.cp("-Rf", "*.html", DISTRIBUTION_DIR);
 
         // TODO: should be generic for all .html files

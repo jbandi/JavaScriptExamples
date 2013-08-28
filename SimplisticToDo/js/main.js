@@ -1,17 +1,13 @@
-window.onload = function(){
+/* global $ */
+
+$(registerButtonHandler);
+
+function registerButtonHandler(){
     "use strict";
      var addBtn = document.getElementById('addBtn');
-//    addBtn.onclick = function(){
-//        addText();
-//    }
 
-    //  Alternative technique:
-    if(addBtn.addEventListener){
-        addBtn.addEventListener("click", function() { addText();});
-    } else { // For IE < 9
-        addBtn.attachEvent("onclick", function() { addText();});
-    }
-};
+    $('#addBtn').on('click', addText);
+}
 
 function addText(){
     "use strict";
