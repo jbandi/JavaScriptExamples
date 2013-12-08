@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="js/vendor/jquery-2.0.3.min.js"></script>
+    <script src="js/vendor/angular-1.0.7.min.js"></script>
+    <script src="js/vendor/moment-2.1.0.min.js"></script>
+    <script src="js/vendor/raphael-2.1.2.min.js"></script>
+
+
+    <!--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="./css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+
+    <title>CourseRater Angular</title>
+</head>
+<body>
+<div class="container" >
+    <div class="hero-unit">
+        <h1>Course Rater Angular</h1>
+        <p>Demonstrating a Master-Detail View with AngularJS App.</p>
+    </div>
+    <div id="CourseRater" class="row-fluid" ng-controller="MainCtrl">
+
+        <script type="text/ng-template" id="ratingElement.html">
+            <h4>{{rating.rating}}</h4>
+            <p>{{ rating.reporter }}, {{rating.date}}</p>
+            <rating_element data-ng-model="rating.rating"></rating_element>
+        </script>
+
+        <div class="span4 sidebar-content">
+            <h2>Ratings</h2>
+            <div class="rating" ng-repeat="rating in ratings" ng-click="setCurrentRating(rating)">
+                <div rating-element></div>
+            </div>
+            <br>
+            <a class="btn" ng-click="createRating()" ><i class="icon-plus"></i></a>
+        </div>
+        <div class="span6 body-content">
+            <h2>Rating</h2>
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="inputRatingChoice">Rating</label>
+                    <div class="controls">
+                        <select id="inputRatingChoice" ng-model="currentStatus" ng-options="r.name for r in ratingChoices" ng-change="setCurrentStatus(currentStatus)"></select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="inputDate">Date</label>
+                    <div class="controls">
+                        <input type="date" id="inputDate" placeholder="Title" ng-model="currentRating.date">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputComment">Comment</label>
+                    <div class="controls">
+                        <textarea id="inputComment" placeholder="Comment" rows="3" ng-model="currentRating.comment"></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputReporter">Reporter</label>
+                    <div class="controls">
+                        <input type="text" id="inputReporter" placeholder="Reporter" ng-model="currentRating.reporter">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <hr>
+    <footer id="TimeFooter">
+        <div class="control-group" ng-controller="TimeCtrl">
+            <h4>Just to remind you, the current time is:</h4>
+            Current time is: <span my-current-time="format"></span><br>
+            Date format: <input  ng-model="format">
+        </div>
+        <hr>
+        <p>@JavaScript Workshop</p>
+    </footer>
+
+</div>
+
+
+
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/time.js"></script>
+</body>
+</html>
