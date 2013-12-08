@@ -1,12 +1,20 @@
-/* global $ */
+/*global $ */
 
 $(registerButtonHandler);
 
 function registerButtonHandler(){
     "use strict";
-     var addBtn = document.getElementById('addBtn');
+    var addBtn = document.getElementById('addBtn');
 
-    $('#addBtn').on('click', addText);
+//    addBtn.addEventListener("click", addText);
+
+    if(addBtn.addEventListener){
+        addBtn.addEventListener("click", addText);
+    } else { // For IE < 9
+        addBtn.attachEvent("onclick", addText);
+    }
+
+//    $('#addBtn').on('click', addText);
 }
 
 function addText(){

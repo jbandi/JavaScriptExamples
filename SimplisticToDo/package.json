@@ -1,0 +1,15 @@
+{
+  "name": "SimplisticToDo",
+  "description": "A simple demo project",
+  "author": "Jonas Bandi",
+  "dependencies": {},
+  "engine": "node 0.4.1",
+  "devDependencies": {
+    "shelljs": ">= 0.2.1",
+    "uglify-js": "~2.4.0",
+    "jshint": "~2.1.10",
+    "jake": "~0.6.11",
+    "karma": "~0.10.2",
+    "jsmin": "~1.0.1"
+  }
+}

@@ -1,11 +1,13 @@
+/*global jake, desc, task, require, complete, fail */
+
 (function () {
 	"use strict";
 
 	var REQUIRED_BROWSERS = [
 //		["IE 8.0", "Windows"],
-		//["IE 9.0", "Windows"],
+//		["IE 9.0", "Windows"],
 //		["Firefox 23.0", "Mac"],
-		["Chrome 29.0", "Mac"],
+//		["Chrome 29.0", "Mac"],
 //		["Safari 6.0", "Mac"]
 //		["Mobile Safari 6.0", "iOS"]
 	];
@@ -28,20 +30,20 @@
     }, {async: true});
 
 	desc("Default Build");
-	task("default", ["clean", "lint", "test", "package"], function() {
+	task("default", ["clean", "lint", "package"], function() {
 		console.log("\n\nOK");
 	});
 
 	desc("Clean");
 	task("clean", function() {
 		shell.rm("-rf", DISTRIBUTION_DIR);
-	})
+	});
 
 	desc("Lint everything");
 	task("lint", [], function () {
         console.log("* Build Step: Linting");
 		var passed = lint.validateFileList(javascriptFiles(), browserLintOptions(), browserGlobals());
-		if (!passed) fail("Lint failed");
+		if (!passed){ fail("Lint failed"); }
 	});
 
     desc("Run unit tests");
@@ -57,7 +59,7 @@
 
         // TODO: should be generic for all .html files
         shell.sed("-i", 'src="js/main.js"', 'src="js/all.min.js"', DISTRIBUTION_DIR + "/index.html");
-    })
+    });
 
     desc("create package structure");
     task("create_package_structure", function(){
@@ -68,7 +70,7 @@
 
         shell.cp('-Rf', 'js/vendor/*', DISTRIBUTION_JS_VENDOR_DIR);
         shell.cp('-Rf', 'css/*', DISTRIBUTION_CSS_DIR);
-    })
+    });
 
 	desc("Uglify");
 	task("uglify", function(){
@@ -78,7 +80,7 @@
 
 		var out = fs.openSync(DISTRIBUTION_JS_DIR + '/all.min.js', 'w+');
 		fs.writeSync(out, result.code);
-	})
+	});
 
 	function javascriptFiles() {
 		var files = new jake.FileList();
@@ -87,23 +89,28 @@
 	}
 
 	function globalLintOptions() {
-		return {
-			bitwise:true,
-			curly:false,
-			eqeqeq:true,
-			forin:true,
-			immed:true,
-			latedef:false,
-			newcap:true,
-			noarg:true,
-			noempty:true,
-			nonew:true,
-			regexp:true,
-			undef:true,
-			strict:true,
-			trailing:true,
-			//globalstrict: true
-		};
+        var jsmin = require('jsmin').jsmin;
+        var stripped_options = jsmin(fs.readFileSync('.jshintrc', "utf8")); // strip comments from .jshintrc
+        var options = JSON.parse(stripped_options);
+
+//		var options = {
+//			bitwise:true,
+//			curly:false,
+//			eqeqeq:true,
+//			forin:true,
+//			immed:true,
+//			latedef:false,
+//			newcap:true,
+//			noarg:true,
+//			noempty:true,
+//			nonew:true,
+//			regexp:true,
+//			undef:true,
+//			strict:true,
+//			trailing:true,
+//			//globalstrict: true
+//		};
+        return options;
 	}
 
 	function browserLintOptions() {
@@ -117,7 +124,7 @@
 			// CommonJS
 			require: false,
 			module: false,
-			exports: false,
+			exports: false
 		};
 	}
 

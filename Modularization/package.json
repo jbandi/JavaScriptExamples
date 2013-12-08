@@ -1,0 +1,15 @@
+{
+  "name": "CourseRater",
+  "description": "A demo project showing modularization",
+  "author": "Jonas Bandi",
+  "dependencies": {},
+  "engine": "node 0.4.1",
+  "devDependencies": {
+    "shelljs": ">= 0.2.1",
+    "uglify-js": "~2.4.0",
+    "browserify": "~2.29.0",
+    "jshint": "~2.1.10",
+    "jake": "~0.6.11",
+    "requirejs": "~2.1.8"
+  }
+}

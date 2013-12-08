@@ -1,0 +1,49 @@
+<!doctype html>
+    <head>
+        <title>Simplistic ToDo</title>
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+    </head>
+    <body>
+    <div class="container">
+
+        <div class="hero-unit">
+            <h1>Simplistic ToDo</h1>
+            <p>This is a most simplistic ToDo List in JavaScript.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <h2>Add a ToDo:</h2>
+                <input type="text" id="input"/>
+                <p><a id="addBtn" class="btn btn-primary btn-large">Add &raquo;</a></p>
+            </div>
+            <div class="col-xs-4">
+                <h2>Items:</h2>
+                <p id="do"> </p>
+            </div>
+
+        </div>
+        <hr>
+        <footer>
+            <p>&copy; Jonas Bandi, JavaScript Course 2013</p>
+        </footer>
+    </div> <!-- /container -->
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
