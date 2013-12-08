@@ -1,0 +1,5 @@
+html, body, article, section, header, footer, div, aside, nav, i, img, p, i, ul, ol, li, span {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}

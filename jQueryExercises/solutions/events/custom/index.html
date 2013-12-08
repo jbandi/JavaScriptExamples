@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../../common/styles/master.css" type="text/css" media="screen" charset="utf-8"/>
+		<link rel="stylesheet" href="main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		
+	</head>
+	<body>
+		<form class="dialog" id="dialog">
+			<header>
+				Change profile data
+			</header>
+			<div class="content">
+				<label>Username</label>
+				<div class="text-view">marcbaechinger</div>
+				<label>Password</label>
+				<input name="password" type="password" pattern=".{8,}" required placeholder="your password">
+				<label>E-Mail address</label>
+				<input name="email" type="email" placeholder="your email address" required>
+			</div>
+			<footer class="clearfix">
+				<button data-action="cancel">cancel</button>
+				<button data-action="save">save</button>
+			</footer>
+		</form>
+		<script src="../../common/libs/jquery-1.10.2.min.js"> </script>
+		<script src="main.js"> </script>
+	</body>
+</html>

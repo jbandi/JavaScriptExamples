@@ -1,0 +1,27 @@
+body {
+	background-color: #999;
+}
+.badge {
+	border: 8px solid beige;
+	border-radius: 50%;
+	box-shadow: 2px 2px 9px #000;
+	width: 240px;
+	height: 240px;
+}
+.image-container {
+	margin-top: 4em;
+	width: 50%;
+	float: left;
+}
+.image-container img {
+	display: block;
+	margin: auto;
+	width: 240px;
+	height: 240px;
+}
+section {
+	background-image: url(../common/img/zico.jpg);
+	background-size: cover;
+	display: block;
+	margin: auto;
+}

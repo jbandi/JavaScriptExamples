@@ -1,0 +1,85 @@
+body {
+	background-color: #999;
+	font-family: sans-serif;
+}
+
+.dialog {
+	background-color: #ededed;
+	border-radius: 6px;
+	box-shadow: 4px 4px 16px #000;
+	width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
+
+.dialog header {
+	background-color: #333;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	color: whitesmoke;
+	font-size: 1.6em;
+	padding: 26px 16px 18px 16px;
+}
+.dialog .content {
+	padding: 16px;
+}
+
+.dialog .content label,
+.dialog .content input,
+.dialog .content .text-view {
+	display: block;
+	font-size: 18px;
+	padding: 4px;
+	width: 100%;
+}
+.dialog .content input,
+.dialog .content .text-view {
+	margin-bottom: 12px;
+	line-height: 1.5em;
+}
+.dialog .content .text-view {
+	border: 1px solid #dedede;
+}
+.dialog footer {
+	background-color: #333;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: whitesmoke;
+	padding: 16px 16px 12px 16px;
+}
+.dialog button {
+	float: right;
+	background-color: #ededed;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 1em;
+	margin-left: 12px;
+	padding: 4px;
+}
+.dialog input:invalid {
+	background-color: #FFEEBC;
+	box-shadow: 0 0 3px red;
+}
+.dialog input:valid {
+	background-color: #fff;
+	box-shadow: none;
+}
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom:1;
+}
+
+html, body, section, div, label, input, footer, header {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+} 

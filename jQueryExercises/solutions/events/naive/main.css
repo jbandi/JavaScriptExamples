@@ -1,0 +1,67 @@
+body {
+	background-color: #999;
+}
+.badge {
+	border: 8px solid beige;
+	border-radius: 50%;
+	box-shadow: 2px 2px 9px #000;
+	width: 240px;
+	height: 240px;
+}
+.image-container {
+	margin-top: 4em;
+	width: 50%;
+	float: left;
+}
+.image-container img {
+	display: block;
+	margin: auto;
+	width: 240px;
+	height: 240px;
+}
+section {
+	background-image: url(../../common/img/zico.jpg);
+	background-size: cover;
+	display: block;
+	margin: auto;
+}
+
+.animate {
+	-moz-animation-duration: 1.2s;
+	-moz-animation-name: rotate;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+	-webkit-animation-duration: 1.2s;
+	-webkit-animation-name: rotate;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-duration: 1.2s;
+	animation-name: rotate;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+	transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+	-webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+	-moz-transform: rotate(360deg);
+  }
+}
