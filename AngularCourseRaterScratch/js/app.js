@@ -1,0 +1,3 @@
+var MyCtrl = function ($scope) {
+
+};

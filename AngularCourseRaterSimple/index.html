@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Angular</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"  type="text/css"/>
+</head>
+<body>
+
+
+<div class="container" ng-app >
+    <div class="hero-unit">
+        <h1>Course Rater</h1>
+        <p>Demonstrating a simple AngularJS App.</p>
+    </div>
+    <div class="row" ng-controller="MyCtrl">
+        <div class="span4">
+            <p>
+                <label>Rating (1-5):</label>
+                <input type="text" ng-model="rating"/>
+            </p>
+            <p>
+                <label>Your Name:</label>
+                <input type="text" ng-model="name"/>
+            </p>
+            <h4> {{ name }} entered: {{ rating }}</h4>
+            <p>
+                <button class="btn btn-success" ng-click="addRating()">Add</button>
+            </p>
+        </div>
+        <div class="span8">
+            <p>
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Rating</th>
+                            <th>Entered</th>
+                        </tr>
+                        </thead>
+
+                        <tr ng-repeat="r in ratings">
+                            <td>{{ r.name }}</td>
+                            <td>{{ r.rating }}</td>
+                            <td>{{ r.entered | date:'fullDate' }}</td>
+                            <td><button class="btn btn-danger" ng-click="removeRating(r)">Remove</button></td>
+                        </tr>
+                    </table>
+                    <h3> <ng-pluralize count = "ratings.length" when="pluralizer"></ng-pluralize> </h3>
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
