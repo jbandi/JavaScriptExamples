@@ -14,12 +14,15 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
-        // configurable paths
         yeoman: {
             app: 'app',
             dist: 'dist'
         },
         watch: {
+            src: {
+                files: ['Gruntfile.js', '<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/{,*/}*.js' ],
+                tasks: ['jshint']
+            },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']

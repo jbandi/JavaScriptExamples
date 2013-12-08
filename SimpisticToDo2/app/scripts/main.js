@@ -4,13 +4,13 @@ function registerButtonHandler(){
     "use strict";
     var addBtn = document.getElementById('addBtn');
 
-//    addBtn.addEventListener("click", addText);
-
-    if(addBtn.addEventListener){
-        addBtn.addEventListener("click", addText);
-    } else { // For IE < 9
-        addBtn.attachEvent("onclick", addText);
-    }
+    addBtn.addEventListener("click", addText);
+//
+//    if(addBtn.addEventListener){
+//        addBtn.addEventListener("click", addText);
+//    } else { // For IE < 9
+//        addBtn.attachEvent("onclick", addText);
+//    }
 
 //    $('#addBtn').on('click', addText);
 }

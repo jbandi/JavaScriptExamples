@@ -13,7 +13,8 @@ describe('ToDo List', function(){
         $(document.body).append(todoList);
 
         // Hack: Firefox does not properly register event handlers when loaded in Jasmine
-        if (navigator.userAgent.indexOf("Firefox") !== -1 && !$._data($('#addBtn').get(0),'events') ){
+        if (navigator.userAgent.indexOf("Firefox") !== -1 ){
+            $("#addBtn").unbind("click");
             registerButtonHandler();
         }
     });
@@ -29,8 +30,8 @@ describe('ToDo List', function(){
         addText();
 
         var todoList = $('#do h3');
-//        expect(todoList.length).toBe(1);
-//        expect(todoList.eq(0).text()).toBe('First ToDo');
+        expect(todoList.length).toBe(1);
+        expect(todoList.eq(0).text()).toBe('First ToDo');
     });
 
 //    it('should add item when clicking button', function() {
