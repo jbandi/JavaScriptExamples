@@ -5,7 +5,7 @@ describe('ToDo List', function(){
     beforeEach(function() {
 
         // Set up dom for test
-        var input = $("<input type='text' id='input'/>");
+        var input = $('<input type="text" id="input"/>');
         var addBtn = $('<a id="addBtn" class="btn btn-primary btn-large" >Add &raquo;</a>');
         var todoList = $('<p id="do"> </p>');
         $(document.body).append(input);
@@ -13,8 +13,8 @@ describe('ToDo List', function(){
         $(document.body).append(todoList);
 
         // Hack: Firefox does not properly register event handlers when loaded in Jasmine
-        if (navigator.userAgent.indexOf("Firefox") !== -1 ){
-            $("#addBtn").unbind("click");
+        if (navigator.userAgent.indexOf('Firefox') !== -1 ){
+            $('#addBtn').unbind('click');
             registerButtonHandler();
         }
     });

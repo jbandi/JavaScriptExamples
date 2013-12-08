@@ -1,6 +1,4 @@
-// Generated on 2013-12-07 using generator-webapp 0.4.4
-'use strict';
-
+/*global module, require */
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -8,6 +6,8 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+    'use strict';
+
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
@@ -313,8 +313,8 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('server', function () {
-      grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-      grunt.task.run(['serve']);
+        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+        grunt.task.run(['serve']);
     });
 
     grunt.registerTask('test', [
