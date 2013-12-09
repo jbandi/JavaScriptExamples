@@ -15,7 +15,16 @@
     </div>
     <div id="app" class="row" >
         <div class="span4">
-            <p></p>
+            <p>
+                <label>Rating (1-5):</label>
+                <input type="text" ng-model="rating"/>
+            </p>
+            <p>
+                <label>Your Name:</label>
+                <input type="text" ng-model="name"/>
+            </p>
+            <h4>Summary:</h4>
+            <button class="btn btn-success">Add</button>
         </div>
         <div class="span8">
             <p>
@@ -28,7 +37,12 @@
                             <th>Entered</th>
                         </tr>
                         </thead>
-
+                        <tr ng-repeat="item in ratings">
+                            <td>name</td>
+                            <td>rating</td>
+                            <td>date</td>
+                            <td><button class="btn btn-danger">Remove</button></td>
+                        </tr>
                     </table>
                     <h3> RATING COUNT HERE! </h3>
                 </div>
@@ -37,8 +51,8 @@
     </div>
 </div>
 
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="vendor/jquery/jquery-1.10.2.min.js"></script>
+<script src="vendor/angularjs/1.0.7/angular.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.js"></script>
 <script src="scripts/app.js"></script>;
 </body>
