@@ -8,7 +8,7 @@
 <body>
 
 
-<div class="container"  >
+<div class="container" >
     <div class="hero-unit">
         <h1>Talk Rater</h1>
         <p>Demonstrating a simple AngularJS App.</p>
@@ -17,14 +17,14 @@
         <div class="span4">
             <p>
                 <label>Rating (1-5):</label>
-                <input type="text" ng-model="rating"/>
+                <input type="text" />
             </p>
             <p>
                 <label>Your Name:</label>
-                <input type="text" ng-model="name"/>
+                <input type="text" />
             </p>
-            <h4>Summary:</h4>
-            <button class="btn btn-success">Add</button>
+            <h4>Summary: </h4>
+            <button class="btn btn-success" >Add</button>
         </div>
         <div class="span8">
             <p>
@@ -37,14 +37,14 @@
                             <th>Entered</th>
                         </tr>
                         </thead>
-                        <tr ng-repeat="item in ratings">
+                        <tr >
                             <td>name</td>
                             <td>rating</td>
-                            <td>date</td>
-                            <td><button class="btn btn-danger">Remove</button></td>
+                            <td>entered</td>
+                            <td><button class="btn btn-danger" >Remove</button></td>
                         </tr>
                     </table>
-                    <h3> RATING COUNT HERE! </h3>
+                    <h3> Count: </h3>
                 </div>
             </p>
         </div>
@@ -52,7 +52,7 @@
 </div>
 
 <script src="vendor/jquery/jquery-1.10.2.min.js"></script>
-<script src="vendor/angularjs/1.0.7/angular.min.js"></script>
+<script src="vendor/angularjs/angular.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.js"></script>
 <script src="scripts/app.js"></script>;
 </body>
