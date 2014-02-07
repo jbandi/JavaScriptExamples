@@ -1,0 +1,30 @@
+{
+  "name": "jm0314",
+  "version": "0.0.1",
+  "description": "Examples for the article",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "http-server app/ & echo $! > pid",
+    "test": "karma start --single-run --browsers PhantomJS",
+    "posttest": "kill `cat pid`;rm pid"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angularjs-de/jm0314.git"
+  },
+  "keywords": [
+    "angularjs",
+    "article",
+    "examples"
+  ],
+  "author": "Robin Böhm, Philipp Tarasiewicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angularjs-de/jm0314/issues"
+  },
+  "devDependencies": {
+    "karma": "0.10.8",
+    "karma-ng-scenario": "0.1.0",
+    "karma-ng-html2js-preprocessor": "0.1.0"
+  }
+}
