@@ -1,3 +1,15 @@
+This subtree is added from:
+https://github.com/toedter/typescript-contacts-demo
+
+Commands:
+
+```git remote add -f typescript-contacts-demo https://github.com/toedter/typescript-contacts-demo.git```
+
+```git subtree add --prefix typescript-contacts-demo typescript-contacts-demo master```
+
+```git subtree pull --prefix typescript-contacts-demo typescript-contacts-demo master```
+
+
 typescript-contacts-demo
 ========================
 
