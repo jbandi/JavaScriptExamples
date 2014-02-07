@@ -21,12 +21,28 @@ lesson("Bad Parts", function() {
         expect(false == 0).toBe(FILL_ME_IN);
         expect(false == '0').toBe(FILL_ME_IN);
         expect(false == 'false').toBe(FILL_ME_IN);
+
+        expect(Math.min() < Math.max()).toBe(FILL_ME_IN);
     });
 
     learn("about some strange type logic", function(){
         expect(typeof(null)).toBe(FILL_ME_IN);
         expect(typeof([])).toBe(FILL_ME_IN);
         expect(typeof(NaN)).toBe(FILL_ME_IN);
+    })
+
+    learn("about array iteration", function (){
+
+        var test;
+        var ar = ['i', 'j', 'k'];
+
+        for(var i = 0; i < ar.length; i++){
+            test = ar[i];
+        }
+        expect(test).toBe(FILL_ME_IN);
+
+        for(var v in ar){ test = v };
+        expect(test).toBe(FILL_ME_IN);
     })
 
     learn("about the quirks of semicolon insertion", function() {

@@ -3,7 +3,7 @@
 0 == ''
 
 false == false
-false = 'false'
+false == 'false'
 false == '0'
 
 var myArray = [0]; 
@@ -18,3 +18,6 @@ NaN !== NaN
 typeof NaN
 
 Math.min() < Math.max()
+
+var ar = ['i', 'j', 'k'];
+for(v in ar){ console.log(tt) };
