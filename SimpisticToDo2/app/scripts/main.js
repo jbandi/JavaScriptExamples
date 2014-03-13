@@ -1,10 +1,11 @@
+/* exported addText */
 $(registerButtonHandler);
 
 function registerButtonHandler(){
     'use strict';
-    var addBtn = document.getElementById('addBtn');
+    // var addBtn = document.getElementById('addBtn');
 
-    addBtn.addEventListener('click', addText);
+    // addBtn.addEventListener('click', addText);
 //
 //    if(addBtn.addEventListener){
 //        addBtn.addEventListener("click", addText);

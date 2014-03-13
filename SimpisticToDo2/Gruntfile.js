@@ -20,8 +20,8 @@ module.exports = function (grunt) {
         },
         watch: {
             src: {
-                files: ['Gruntfile.js', '<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/{,*/}*.js' ],
-                tasks: ['jshint']
+                files: ['Gruntfile.js', '<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/{,*/}*.js', 'test/unit/{,*/}*.js', 'test/index.html' ],
+                tasks: ['jshint', 'test']
             },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -98,14 +98,17 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/{,*/}*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
+                'test/unit/{,*/}*.js',
                 'test/spec/{,*/}*.js'
             ]
         },
         mocha: {
             all: {
+                //src:['test/index.html'],
                 options: {
-                    run: true,
-                    urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
+                    urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html'],
+                    run: true, 
+                    log: true
                 }
             }
         },

@@ -7,17 +7,29 @@
 </head>
 <body>
     <div id="mocha"></div>
+
+    <script src="bower_components/jquery/jquery.js"></script>
+
     <script src="lib/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
+    <script>mocha.setup({ignoreLeaks: true});</script>
     <!-- assertion framework -->
     <script src="lib/chai.js"></script>
     <script>var expect = chai.expect</script>
 
     <!-- include source files here... -->
+    <script src="scripts/main.js"></script>
 
     <!-- include spec files here... -->
-    <script src="spec/test.js"></script>
+    <script src="unit/test.js"></script>
 
-    <script>mocha.run()</script>
+    <script>
+    
+        if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+            // Only tests run in real browser, injected script run if options.run == true
+            mocha.run()
+        }
+
+    </script>
 </body>
 </html>
