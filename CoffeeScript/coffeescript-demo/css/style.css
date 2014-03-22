@@ -1,0 +1,48 @@
+body {
+	padding: 1em;
+}
+
+h2, h3, small {
+	margin: 0.2em;
+}
+
+#gallery div {
+	margin: 1em 0;
+}
+
+#gallery div img {
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+}
+
+#gallery div span {
+	height: 120px;
+	width: 130px;
+	display: inline-block;
+	margin: 163px 0;
+	padding: 0;
+	color: transparent;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+#gallery div span:hover {
+	opacity: 1;
+}
+
+#gallery div span:first-of-type {
+	background: url("prev.svg") no-repeat;
+	text-align: right;
+	background-position: top 50% right 0;
+}
+
+#gallery div span:last-of-type {
+	background: url("next.svg") no-repeat;
+	background-position: top 50% left 0;
+}
+
+small:last-of-type {
+	font-size: 70%;
+	color: gray;
+}
