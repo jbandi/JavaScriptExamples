@@ -20,4 +20,4 @@ typeof NaN
 Math.min() < Math.max()
 
 var ar = ['i', 'j', 'k'];
-for(v in ar){ console.log(tt) };
+for(v in ar){ console.log(v) };
